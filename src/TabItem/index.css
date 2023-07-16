@@ -1,0 +1,30 @@
+/* Write your CSS here */
+.but-con-active {
+  border-bottom: 3px solid #fec653;
+}
+
+.button-con-deactive {
+  border-bottom: 3px solid #fff1eb;
+}
+
+.button-con {
+  background-color: transparent;
+  padding: 10px;
+}
+
+button {
+  min-height: 20px;
+  min-width: 40px;
+  background-color: transparent;
+  font-family: roboto;
+  border: none;
+  outline: none;
+  font-weight: 600;
+}
+
+.button-active {
+  color: #fec653;
+}
+.button-deactive {
+  color: #ffffff;
+}

@@ -1,0 +1,19 @@
+/* Write your code here. */
+
+.nav {
+  background-color: #2c0e3a;
+  width: 100%;
+  padding: 5px;
+}
+.row-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gamelogo {
+  height: 30px;
+}
+.score {
+  color: #ffffff;
+  width: 100px;
+}
