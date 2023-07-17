@@ -79,6 +79,7 @@ class Mainpage extends Component {
       gameOver: !pre.gameOver,
       counter: 60,
     }))
+    this.timer()
   }
 
   tabOnlyList = () => {
