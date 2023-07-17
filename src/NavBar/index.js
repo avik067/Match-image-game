@@ -3,8 +3,8 @@
 import './index.css'
 
 const NavBar = props => {
-  //   const {sc, tp} = props
-  console.log('lgnmw')
+  const {score} = props
+
   return (
     <nav className="nav row-space-between">
       <div className="row">
@@ -16,7 +16,7 @@ const NavBar = props => {
       </div>
 
       <div className="score-div row">
-        <p className="score">Score: 0</p>
+        <p className="score">Score: {score}</p>
         <p className="score">Top Score: 0</p>
       </div>
     </nav>

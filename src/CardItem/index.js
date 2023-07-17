@@ -10,7 +10,7 @@ const CardItem = props => {
   return (
     <li className="item-container row">
       <button type="button" onClick={choose}>
-        <img src={thumbnailUrl} className="img" />
+        <img src={thumbnailUrl} className="img" alt="thumbnail" />
       </button>
     </li>
   )

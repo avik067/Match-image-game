@@ -11,8 +11,6 @@ const TabItem = props => {
     triggerAction(tabId)
   }
 
-  console.log(activateId)
-
   const classToApply =
     tabId === activateId ? 'but-con-active' : 'but-con-deactive'
 

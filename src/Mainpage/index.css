@@ -12,6 +12,11 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
+.main-img {
+  height: 300px;
+}
+
 .main-card {
   padding: 10px;
   min-width: 50%;
