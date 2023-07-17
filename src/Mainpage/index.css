@@ -75,6 +75,10 @@ h1 {
   align-items: center;
   flex-wrap: wrap;
 }
+ul {
+  margin: 0px;
+  padding: 0px;
+}
 li {
   list-style: none;
   text-align: center;

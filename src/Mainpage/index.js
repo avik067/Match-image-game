@@ -25,10 +25,14 @@ class Mainpage extends Component {
     }
   }
 
+  clearTimer = () => {
+    clearInterval(this.interVal)
+  }
+
   timerAction = () => {
     const {counter} = this.state
     if (counter === 1) {
-      clearInterval(this.interVal)
+      this.clearTimer()
       this.setState(pre => ({counter: pre.counter - 1}))
       return
     }
@@ -58,7 +62,8 @@ class Mainpage extends Component {
         score: pre.score + 1,
       }))
     } else {
-      this.setState(pre => ({...pre, gameOver: !pre.gameOver}))
+      this.clearTimer()
+      this.setState(pre => ({...pre, gameOver: !pre.gameOver, counter: 0}))
       console.log('Game Over')
     }
     console.log(idPassed)
@@ -69,6 +74,7 @@ class Mainpage extends Component {
     const {mainList} = this.props
     this.setState(pre => ({
       ...pre,
+      score: 0,
       tempList: mainList,
       gameOver: !pre.gameOver,
       counter: 60,
@@ -86,7 +92,7 @@ class Mainpage extends Component {
     const {tabList} = this.props
     const {tabId, tempList, score, gameOver, counter} = this.state
     const newList = this.tabOnlyList()
-    const mainImg = tempList[0].imageUrl
+    const urlM = tempList[0].imageUrl
 
     let element
     console.log(gameOver)
@@ -96,10 +102,10 @@ class Mainpage extends Component {
     } else {
       console.log('continue')
       element = (
-        <div className="main-card">
-          <div>
-            <img className="main-img" src={mainImg} alt="" />
-          </div>
+        <li className="main-card">
+          <li>
+            <img className="main-img" src={urlM} alt="match" />
+          </li>
           <div className="row">
             <ul className="row">
               {tabList.map(each => (
@@ -112,23 +118,22 @@ class Mainpage extends Component {
               ))}
             </ul>
           </div>
-
           <div className="item-container-card">
-            <ul className=" space">
+            <ul className="space">
               {newList.map(each => (
                 <CardItem details={each} key={each.id} choosed={this.choosed} />
               ))}
             </ul>
           </div>
-        </div>
+        </li>
       )
     }
 
     return (
-      <div className="main">
+      <ul className="main">
         <NavBar score={score} counter={counter} />
         <>{element}</>
-      </div>
+      </ul>
     )
   }
 }

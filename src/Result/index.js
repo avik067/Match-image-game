@@ -14,7 +14,7 @@ const Result = props => {
         <img
           className="thophy-img"
           src="https://assets.ccbp.in/frontend/react-js/match-game-trophy.png"
-          alt=""
+          alt="trophy"
         />
       </div>
       <div className="rest col">

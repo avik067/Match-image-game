@@ -25,7 +25,7 @@ const NavBar = props => {
             src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
             alt="timer"
           />
-          <p className="timer"> {counter}</p>
+          <p className="timer">{counter} sec</p>
         </div>
       </div>
     </nav>
