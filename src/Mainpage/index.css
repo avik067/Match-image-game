@@ -4,13 +4,13 @@
   background-image: url('https://assets.ccbp.in/frontend/react-js/match-game-bg.png');
   background-size: cover;
   min-height: 100vh;
-
   padding: 0px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  min-width: 300px;
 }
 
 .main-img {
@@ -49,6 +49,7 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .search-icon {
   max-height: 18px;
@@ -93,5 +94,8 @@ li {
   }
   .item-container-card {
     padding: 2px;
+  }
+  .main-img {
+    height: 200px;
   }
 }
