@@ -21,7 +21,26 @@ class Mainpage extends Component {
       tempList: mainList,
       score: 0,
       gameOver: false,
+      counter: 60,
     }
+  }
+
+  timerAction = () => {
+    const {counter} = this.state
+    if (counter === 1) {
+      clearInterval(this.interVal)
+      this.setState(pre => ({counter: pre.counter - 1}))
+      return
+    }
+    this.setState(pre => ({counter: pre.counter - 1}))
+  }
+
+  componentDidMount = () => {
+    this.timer()
+  }
+
+  timer = () => {
+    this.interVal = setInterval(this.timerAction, 1000)
   }
 
   change = idPassed => {
@@ -64,15 +83,14 @@ class Mainpage extends Component {
 
   render() {
     const {tabList} = this.props
-    const {tabId, tempList, score, gameOver} = this.state
+    const {tabId, tempList, score, gameOver, counter} = this.state
     const newList = this.tabOnlyList()
     const mainImg = tempList[0].imageUrl
+
     let element
-    if (gameOver) {
-      console.log('loose')
+    if (gameOver || tempList.length === 0 || counter === 0) {
+      console.log('win/loose')
       element = <Result score={score} trigger={this.restartGame} />
-    } else if (tempList.length === 0) {
-      console.log('win')
     } else {
       console.log('continue')
       element = (
@@ -106,7 +124,7 @@ class Mainpage extends Component {
 
     return (
       <div className="main">
-        <NavBar score={score} />
+        <NavBar score={score} counter={counter} />
         <>{element}</>
       </div>
     )

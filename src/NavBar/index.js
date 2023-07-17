@@ -3,7 +3,7 @@
 import './index.css'
 
 const NavBar = props => {
-  const {score} = props
+  const {score, counter} = props
 
   return (
     <nav className="nav row-space-between">
@@ -23,7 +23,7 @@ const NavBar = props => {
             src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
             alt="timer"
           />
-          <p className="timer"> 0</p>
+          <p className="timer"> {counter}</p>
         </div>
       </div>
     </nav>

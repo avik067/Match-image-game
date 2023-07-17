@@ -13,15 +13,18 @@
 .gamelogo {
   height: 30px;
 }
+.score-div {
+  margin-right: 20px;
+}
 .icon {
   height: 20px;
 }
 .score {
-  color: #ffffff;
+  color: #fec653;
   width: 100px;
 }
 .timer {
   font-weight: 400;
   font-size: 20px;
-  color: #ffffff;
+  color: #fec653;
 }
