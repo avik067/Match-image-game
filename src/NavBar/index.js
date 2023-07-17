@@ -17,7 +17,14 @@ const NavBar = props => {
 
       <div className="score-div row">
         <p className="score">Score: {score}</p>
-        <p className="score">Top Score: 0</p>
+        <div className="row">
+          <img
+            className="icon"
+            src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
+            alt="timer"
+          />
+          <p className="timer"> 0</p>
+        </div>
       </div>
     </nav>
   )

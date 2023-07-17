@@ -4,6 +4,8 @@ import TabItem from '../TabItem'
 
 import CardItem from '../CardItem'
 
+import Result from '../Result'
+
 import NavBar from '../NavBar'
 
 import './index.css'
@@ -43,6 +45,16 @@ class Mainpage extends Component {
     console.log(idPassed)
   }
 
+  restartGame = () => {
+    console.log('reset')
+    const {mainList} = this.props
+    this.setState(pre => ({
+      ...pre,
+      tempList: mainList,
+      gameOver: !pre.gameOver,
+    }))
+  }
+
   tabOnlyList = () => {
     const {tabId} = this.state
     const {mainList} = this.props
@@ -55,48 +67,47 @@ class Mainpage extends Component {
     const {tabId, tempList, score, gameOver} = this.state
     const newList = this.tabOnlyList()
     const mainImg = tempList[0].imageUrl
+    let element
     if (gameOver) {
       console.log('loose')
+      element = <Result score={score} trigger={this.restartGame} />
     } else if (tempList.length === 0) {
       console.log('win')
     } else {
       console.log('continue')
+      element = (
+        <div className="main-card">
+          <div>
+            <img className="main-img" src={mainImg} alt="" />
+          </div>
+          <div className="row">
+            <ul className="row">
+              {tabList.map(each => (
+                <TabItem
+                  details={each}
+                  key={each.tabId}
+                  triggerAction={this.change}
+                  activateId={tabId}
+                />
+              ))}
+            </ul>
+          </div>
+
+          <div className="item-container-card">
+            <ul className=" space">
+              {newList.map(each => (
+                <CardItem details={each} key={each.id} choosed={this.choosed} />
+              ))}
+            </ul>
+          </div>
+        </div>
+      )
     }
 
     return (
       <div className="main">
         <NavBar score={score} />
-        <>
-          <div className="main-card">
-            <div>
-              <img className="main-img" src={mainImg} alt="" />
-            </div>
-            <div className="row">
-              <ul className="row">
-                {tabList.map(each => (
-                  <TabItem
-                    details={each}
-                    key={each.tabId}
-                    triggerAction={this.change}
-                    activateId={tabId}
-                  />
-                ))}
-              </ul>
-            </div>
-
-            <div className="item-container-card">
-              <ul className=" space">
-                {newList.map(each => (
-                  <CardItem
-                    details={each}
-                    key={each.id}
-                    choosed={this.choosed}
-                  />
-                ))}
-              </ul>
-            </div>
-          </div>
-        </>
+        <>{element}</>
       </div>
     )
   }
