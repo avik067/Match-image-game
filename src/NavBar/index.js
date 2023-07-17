@@ -16,7 +16,9 @@ const NavBar = props => {
       </div>
 
       <div className="score-div row">
-        <p className="score">Score: {score}</p>
+        <p className="score-n">
+          Score: <span className="score">{score}</span>
+        </p>
         <div className="row">
           <img
             className="icon"

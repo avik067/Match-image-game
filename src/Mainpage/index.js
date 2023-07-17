@@ -71,6 +71,7 @@ class Mainpage extends Component {
       ...pre,
       tempList: mainList,
       gameOver: !pre.gameOver,
+      counter: 60,
     }))
   }
 
@@ -88,6 +89,7 @@ class Mainpage extends Component {
     const mainImg = tempList[0].imageUrl
 
     let element
+    console.log(gameOver)
     if (gameOver || tempList.length === 0 || counter === 0) {
       console.log('win/loose')
       element = <Result score={score} trigger={this.restartGame} />
