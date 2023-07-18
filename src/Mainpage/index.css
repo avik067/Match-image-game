@@ -40,7 +40,7 @@ input {
 .row {
   padding: 0px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }

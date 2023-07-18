@@ -93,7 +93,7 @@ class Mainpage extends Component {
     const {tabList} = this.props
     const {tabId, tempList, score, gameOver, counter} = this.state
     const newList = this.tabOnlyList()
-    const urlM = tempList[0].imageUrl
+    const {imageUrl} = tempList[0]
 
     let element
     console.log(gameOver)
@@ -105,7 +105,7 @@ class Mainpage extends Component {
       element = (
         <li className="main-card">
           <li>
-            <img className="main-img" src={urlM} alt="match" />
+            <img className="main-img" src={imageUrl} alt="match" />
           </li>
           <div className="row">
             <ul className="row">
