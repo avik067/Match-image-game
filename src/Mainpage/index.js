@@ -15,7 +15,7 @@ class Mainpage extends Component {
     super(props)
     const {mainList, tabList} = props
     console.log(mainList)
-    mainList.sort(() => Math.random() - 0.5)
+    // mainList.sort(() => Math.random() - 0.5)
     this.state = {
       tabId: tabList[0].tabId,
       tempList: mainList,
@@ -72,6 +72,7 @@ class Mainpage extends Component {
   restartGame = () => {
     console.log('reset')
     const {mainList} = this.props
+    this.timer()
     this.setState(pre => ({
       ...pre,
       score: 0,
@@ -79,7 +80,6 @@ class Mainpage extends Component {
       gameOver: !pre.gameOver,
       counter: 60,
     }))
-    this.timer()
   }
 
   tabOnlyList = () => {
