@@ -22,11 +22,13 @@ class Mainpage extends Component {
       score: 0,
       gameOver: false,
       counter: 60,
+      isStarted: false,
     }
   }
 
   clearTimer = () => {
     clearInterval(this.interVal)
+    this.setState({isStarted: true})
   }
 
   timerAction = () => {
@@ -60,6 +62,7 @@ class Mainpage extends Component {
           .filter(each => each.id !== idPassed)
           .sort(() => Math.random() - 0.5),
         score: pre.score + 1,
+        isStarted: false,
       }))
     } else {
       this.clearTimer()
@@ -72,6 +75,7 @@ class Mainpage extends Component {
   restartGame = () => {
     console.log('reset')
     const {mainList} = this.props
+
     this.timer()
     this.setState(pre => ({
       ...pre,
@@ -79,6 +83,7 @@ class Mainpage extends Component {
       tempList: mainList,
       gameOver: !pre.gameOver,
       counter: 60,
+      isStarted: false,
     }))
   }
 
@@ -91,13 +96,13 @@ class Mainpage extends Component {
 
   render() {
     const {tabList} = this.props
-    const {tabId, tempList, score, gameOver, counter} = this.state
+    const {tabId, tempList, score, gameOver, counter, isStarted} = this.state
     const newList = this.tabOnlyList()
     const {imageUrl} = tempList[0]
 
     let element
     console.log(gameOver)
-    if (gameOver || tempList.length === 0 || counter === 0) {
+    if ((gameOver || tempList.length === 0 || counter === 0) && isStarted) {
       console.log('win/loose')
       element = <Result score={score} trigger={this.restartGame} />
     } else {
